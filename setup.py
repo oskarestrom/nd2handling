@@ -9,13 +9,13 @@ setuptools.setup(
     author='Oskar E. Strom',
     author_email='oskarestrom@protonmail.com',
     description='ND2 File Handling',
-    long_description=long_description,
-    long_description_content_type="text/markdown",
+    # long_description=long_description,
+    # long_description_content_type="text/markdown",
     url='',
     # project_urls = {
     #     "Bug Tracker": ""
     # },
-    # license='Oskar E. Strom',
+    license='Oskar E. Strom',
     packages=['nd2handling'],
     install_requires=[
             'pims',
