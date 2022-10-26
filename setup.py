@@ -11,7 +11,7 @@ setuptools.setup(
     description='ND2 File Handling',
     # long_description=long_description,
     # long_description_content_type="text/markdown",
-    url='',
+    # url='',
     # project_urls = {
     #     "Bug Tracker": ""
     # },
@@ -21,6 +21,6 @@ setuptools.setup(
             'pims',
             'nd2reader',
             'pandas',
-            'numpy'
+            'numpy',
             ],
 )
