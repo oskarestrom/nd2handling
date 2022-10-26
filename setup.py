@@ -15,7 +15,7 @@ setuptools.setup(
     # project_urls = {
     #     "Bug Tracker": ""
     # },
-    license='Oskar E. Strom',
+    # license='Oskar E. Strom',
     packages=['nd2handling'],
     install_requires=[
             'pims',
