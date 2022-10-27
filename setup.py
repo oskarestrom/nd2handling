@@ -11,11 +11,11 @@ setuptools.setup(
     description='ND2 File Handling',
     # long_description=long_description,
     # long_description_content_type="text/markdown",
-    url='https://github.com/oskarstromski/nd2handling',
+    url='https://github.com/oskarstromski/nd2handling.git',
     # project_urls = {
     #     "Bug Tracker": ""
     # },
-    license='Oskar E. Strom',
+    # license='Oskar E. Strom',
     packages=['nd2handling'],
     install_requires=[
             'pims',
