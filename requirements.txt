@@ -1,0 +1,4 @@
+pims
+nd2reader
+pandas
+numpy
