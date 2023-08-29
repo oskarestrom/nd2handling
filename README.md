@@ -19,6 +19,19 @@ You can use both the libraries [nd2reader](https://pypi.org/project/nd2reader/) 
 - pandas        >= 1.3.3,   < 2
 - numpy             >= 1.19,  < 2
 
+## What metadata can we extract from nd2-files?
+- frame rate
+- image dimensions
+- bit depth
+- average exposure time
+- x,y and z coordinates of the ROI (for every single frame, useful if the ROI is moving during recording)
+- light source intensity (if connected to NIS-Elements)
+- Number in frames (and easily calculated to duration seconds with the frame rate)
+- The timestamp (and date) of the image (and each frame if a movie). This is especially useful if one manipulates the sample with e.g. pressure and know the timestamp for the pressure manipulations.
+- Magnification (e.g. 100x, 5x etc...)
+
+I also used this script to extract information I saved in the filename, such as pressure level (that is not saved in NIS-Elements)
+
 ## Extracting basic metadata with nd2read and pims-nd2
 
 ### Using nd2reader
