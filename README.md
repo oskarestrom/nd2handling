@@ -21,7 +21,7 @@ You can use both the libraries [nd2reader](https://pypi.org/project/nd2reader/) 
 
 ## Extracting basic metadata with nd2read and pims-nd2
 
-### nd2reader
+### Using nd2reader
 For a full tutorial, see [here](https://rbnvrw.github.io/nd2reader/tutorial.html#nd2-metadata)
 ```python
 import os
@@ -43,7 +43,7 @@ with ND2Reader(file_path) as img:
     print('\n')
     print(img.sizes)
 ```
-### PIMS
+### Using pims-nd2
 ```python
 from pims import ND2_Reader #does not work for files with 3846 frames
 file_path = r'E:\DNA waves project\Polarisation exp\2021-06-16_lambda_400nguL_1_200_optosplit\100xOil_500mbar_C2017_sola100_010.nd2'
