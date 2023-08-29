@@ -68,6 +68,7 @@ finally:
 ## Using nd2_handling
 
 ### List all nd2 files in a folder tree to an excel spreadsheet
+During my PhD, I used this extensively, for every experiment. This is a very fast method to get an overview of all the metadata of all the files for a single experiment. The output is an excel document, listing all files with their metadata (e.g. frame rate, dureation in second and frames, ROI dimensions etc...). I found it immensely useful when needing to select files for publications when I made so many duplicates in different ROI sizes, durations, frame rates and so on.
 
 ```python
 import nd2_handling
@@ -85,7 +86,7 @@ dir_main = r'E:\DNA waves project\Polarisation exp' #Change to your own director
 nd2_handling.get_nd2_lists_for_all_subfolders(dir_main, read_file_name_info=True)
 ```
 
-### Loading a nd2 file with its metadata
+### Loading a single nd2 file with its metadata
 ```python
 
 import matplotlib.pyplot as plt
@@ -137,7 +138,7 @@ Video(4935, 92, 378):
 	- x_um_frame0: 1304.927978515625
 	- y_um_frame0: -4146.3232421875
 	- scale_pix_per_um: 6.25
-    
+
 ![alt text](output.png "First Frame")
 
 frame_rate =  164.8
@@ -145,6 +146,7 @@ height =  92
 ```
 
 ### Loading only the metadata of an nd2 file 
+This is useful when the files are large and takes long time to load. Only loading the metadata goes in a few seconds.
 ```python
 import importlib
 import nd2_handling
