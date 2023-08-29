@@ -86,6 +86,8 @@ dir_main = r'E:\DNA waves project\Polarisation exp' #Change to your own director
 nd2_handling.get_nd2_lists_for_all_subfolders(dir_main, read_file_name_info=True)
 ```
 
+For the output, see the file "example_generated_spreadsheet.xlsx" in the repository.
+
 ### Loading a single nd2 file with its metadata
 ```python
 
