@@ -1,7 +1,9 @@
 # nd2handling
-This package is useful when you are handling NIS-Elements image files with the extension ".nd2". nd2-files are basically [TIF-files](https://en.wikipedia.org/wiki/TIFF) with added metadata. You can use it to load nd2 files and their metadata. You can also use it to gather all metadata of a folder tree into an excel sheet. If any of the metadata you need is not being gathered, please tell me and I can make sure it is added.
+This package is useful when you are handling NIS-Elements image files with the extension ".nd2". nd2-files are basically [TIF-files](https://en.wikipedia.org/wiki/TIFF) with added metadata. However, while TIF-files are very easy to load into python, nd2-files are notoriously difficult. There are currently two public libraries that can load nd2-files into python. These are [nd2reader](https://pypi.org/project/nd2reader/) and [pims-nd2](https://pypi.org/project/pims-nd2/). This package utilizes both exentions as you need both to read **all** available metadata. This package makes the whole process smoother and easier if you are working with a lot of image files.
 
-You can use both the libraries [nd2reader](https://pypi.org/project/nd2reader/) and [pims-nd2](https://pypi.org/project/pims-nd2/) to read nd2-files. This package utilizes both exentions as you need both to read **all** available metadata.
+You can use this package to load nd2 files and their metadata. You can also use it to gather all metadata of a folder tree into an excel sheet. If any of the metadata you need is not being gathered, please tell me and I can make sure it is added.
+
+
 
 ## Dependencies
 **In order for this script to work, you need to install the following modules:**
