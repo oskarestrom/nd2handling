@@ -19,6 +19,12 @@ You can use both the libraries [nd2reader](https://pypi.org/project/nd2reader/) 
 - pandas        >= 1.3.3,   < 2
 - numpy             >= 1.19,  < 2
 
+## Install the package
+Currently the package can be found on [test.pypi.org](https://test.pypi.org/project/nd2handling/0.0.1/). Install it on your anaconda prompt by:
+```shell 
+pip install -i https://test.pypi.org/simple/ nd2handling==0.0.1
+```
+
 ## What metadata can we extract from nd2-files?
 - frame rate
 - image dimensions
