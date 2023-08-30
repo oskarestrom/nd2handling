@@ -6,18 +6,12 @@ You can use both the libraries [nd2reader](https://pypi.org/project/nd2reader/) 
 ## Dependencies
 **In order for this script to work, you need to install the following modules:**
 
-- pip install nd2reader
-- pip install pims-nd2
+- pip install nd2reader >= 3.3.0, < 4
+- pip install pims-nd2 >= 1.1, < 2
 
 **You also need the more general modules pandas and numpy:**
-- pip install pandas
-- pip install numpy
-
-**Version info**:
-- pims-nd2        >= 1.1, < 2
-- nd2reader        >= 3.3.0, < 4
-- pandas        >= 1.3.3,   < 2
-- numpy             >= 1.19,  < 2
+- pip install pandas >= 1.3.3,   < 2
+- pip install numpy >= 1.19,  < 2         
 
 ## Install the package
 Currently the package can be found on [test.pypi.org](https://test.pypi.org/project/nd2handling/0.0.1/). Install it on your anaconda prompt by:
@@ -90,33 +84,35 @@ finally:
 During my PhD, I used this extensively, for every experiment. This is a very fast method to get an overview of all the metadata of all the files for a single experiment. The output is an excel document, listing all files with their metadata (e.g. frame rate, dureation in second and frames, ROI dimensions etc...). I found it immensely useful when needing to select files for publications when I made so many duplicates in different ROI sizes, durations, frame rates and so on.
 
 ```python
-import nd2_handling
+import import nd2handling.nd2handling as nd2
 
 #Set the path of the experiment directory
 dir_path = r'E:\DNA waves project\Higher viscosity waves\2021-10-25 40% sucrose 50 nguL'
-nd2_handling.nd2_file_infos_to_spreadsheet(dir_path, read_time_steps=False, read_xy_pos=False, read_file_name_info=True)
+nd2.nd2_file_infos_to_spreadsheet(dir_path, read_time_steps=False, read_xy_pos=False, read_file_name_info=True)
 ```
 
 ### Loop the above script for many directories
 ```python
+import import nd2handling.nd2handling as nd2
+
 #Set the path of the main directory
 dir_main = r'E:\DNA waves project\Polarisation exp' #Change to your own directory containing subdirectories with .nd2-files.
 
-nd2_handling.get_nd2_lists_for_all_subfolders(dir_main, read_file_name_info=True)
+nd2.get_nd2_lists_for_all_subfolders(dir_main, read_file_name_info=True)
 ```
 
 For the output, see the file "example_generated_spreadsheet.xlsx" in the repository.
 
 ### Loading a single nd2 file with its metadata
 ```python
-
+import import nd2handling.nd2handling as nd2
 import matplotlib.pyplot as plt
 
 #Set the path of the nd2-file:
 nd2_file_path = r'E:\DNA waves project\Polarisation exp\2021-06-16_lambda_400nguL_1_200_optosplit\100xOil_500mbar_C2017_sola100_010.nd2'
 
 #Load the nd2 file
-v = nd2_handling.Video(nd2_file_path, read_img_directly=True, frame_range = [0,0])
+v = nd2.Video(nd2_file_path, read_img_directly=True, frame_range = [0,0])
 
 #Print all the information containing all the attributes of the object
 print(v)
@@ -169,15 +165,13 @@ height =  92
 ### Loading only the metadata of an nd2 file 
 This is useful when the files are large and takes long time to load. Only loading the metadata goes in a few seconds.
 ```python
-import importlib
-import nd2_handling
-importlib.reload(nd2_handling)
+import import nd2handling.nd2handling as nd2
 
 #Set the path of the nd2-file:
 nd2_file_path = r'E:\DNA waves project\Polarisation exp\2021-06-16_lambda_400nguL_1_200_optosplit\100xOil_500mbar_C2017_sola100_010.nd2'
 
 #Load the nd2 file without its metadata
-v = nd2_handling.Video(nd2_file_path, read_img_directly=False)
+v = nd2.Video(nd2_file_path, read_img_directly=False)
 print(v)
 
 #Access the attributes:
