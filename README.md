@@ -34,52 +34,6 @@ pip install -i https://test.pypi.org/simple/ nd2handling==0.0.1
 
 I also used this script to extract information I saved in the filename, such as pressure level (that is not saved in NIS-Elements)
 
-## Extracting basic metadata with nd2read and pims-nd2
-
-### Using nd2reader
-For a full tutorial, see [here](https://rbnvrw.github.io/nd2reader/tutorial.html#nd2-metadata)
-```python
-import os
-file_path = r'E:\DNA waves project\Polarisation exp\2021-06-03_lambda_400nguL_1_200\100mbar\100xOil_100mbar_pol-none_mid_solis100_019.nd2'
-
-from nd2reader import ND2Reader
-
-with ND2Reader(file_path) as img:
-    print('All metadata:')
-    frame_rate = img.frame_rate
-    time_steps = img.get_timesteps()
-    print(img.get_timesteps())
-    print(img.pixel_type)
-    print(img.events)
-    exposure_times = img.parser._raw_metadata.camera_exposure_time
-    avg_exposure_time = np.mean(exposure_times)
-    acquisition_times = img.parser._raw_metadata.acquisition_times
-    print("\n{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in img.metadata.items() if (not k=='z_coordinates')) + "}") 
-    print('\n')
-    print(img.sizes)
-```
-### Using pims-nd2
-```python
-from pims import ND2_Reader #does not work for files with 3846 frames
-file_path = r'E:\DNA waves project\Polarisation exp\2021-06-16_lambda_400nguL_1_200_optosplit\100xOil_500mbar_C2017_sola100_010.nd2'
-try:
-    with ND2_Reader(file_path) as frames:
-    #frames[82]  # display frame 82
-        print('All metadata:')
-        print("{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in frames.metadata.items()) + "}")
-        print('\n\nSingle frame Metadata:')
-        print("{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in frames[5].metadata.items()) + "}")
-
-        # for f in frames:
-        #     print(f.metadata['t_ms'])
-
-        frames.close()
-except:
-    print('Caught an error')
-finally:
-    print('')
-```
-
 ## Using nd2_handling
 
 ### List all nd2 files in a folder tree to an excel spreadsheet
@@ -209,4 +163,50 @@ Video(empty):
 
 frame_rate =  164.8
 height =  92
+```
+
+## Extracting basic metadata with nd2read and pims-nd2
+If you decide to directly use nd2read or pims-nd2 to load ".nd2"-files or extract their metadata, here is how to do it:
+### Using nd2reader
+For a full tutorial, see [here](https://rbnvrw.github.io/nd2reader/tutorial.html#nd2-metadata)
+```python
+import os
+file_path = r'E:\DNA waves project\Polarisation exp\2021-06-03_lambda_400nguL_1_200\100mbar\100xOil_100mbar_pol-none_mid_solis100_019.nd2'
+
+from nd2reader import ND2Reader
+
+with ND2Reader(file_path) as img:
+    print('All metadata:')
+    frame_rate = img.frame_rate
+    time_steps = img.get_timesteps()
+    print(img.get_timesteps())
+    print(img.pixel_type)
+    print(img.events)
+    exposure_times = img.parser._raw_metadata.camera_exposure_time
+    avg_exposure_time = np.mean(exposure_times)
+    acquisition_times = img.parser._raw_metadata.acquisition_times
+    print("\n{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in img.metadata.items() if (not k=='z_coordinates')) + "}") 
+    print('\n')
+    print(img.sizes)
+```
+### Using pims-nd2
+```python
+from pims import ND2_Reader #does not work for files with 3846 frames
+file_path = r'E:\DNA waves project\Polarisation exp\2021-06-16_lambda_400nguL_1_200_optosplit\100xOil_500mbar_C2017_sola100_010.nd2'
+try:
+    with ND2_Reader(file_path) as frames:
+    #frames[82]  # display frame 82
+        print('All metadata:')
+        print("{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in frames.metadata.items()) + "}")
+        print('\n\nSingle frame Metadata:')
+        print("{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in frames[5].metadata.items()) + "}")
+
+        # for f in frames:
+        #     print(f.metadata['t_ms'])
+
+        frames.close()
+except:
+    print('Caught an error')
+finally:
+    print('')
 ```
