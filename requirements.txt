@@ -1,4 +1,4 @@
 pims-nd2 >= 1.1, < 2
 nd2reader >= 3.3.0, < 4
 pandas >= 1.3.3, < 2
-numpy >= 1.19, < 2
+numpy >= 1.19, < 2m

@@ -20,6 +20,9 @@ Currently the package can be found on [test.pypi.org](https://test.pypi.org/proj
 ```shell 
 pip install -i https://test.pypi.org/simple/ nd2handling==0.0.1
 ```
+### Cite this work
+In a short amount of time, this work will have a Digital Object Identifier (DOI) through Zenedo that you can cite.
+
 
 ## What metadata can we extract from nd2-files?
 - frame rate
